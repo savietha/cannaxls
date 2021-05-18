@@ -1,0 +1,91 @@
+<html>
+  <head>
+
+      <title>xls EXTRACTION</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+     <link rel="stylesheet" type="text/css" href="/DataTables/datatables.css">
+     <script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+   <script>
+    $(document).ready(function() {
+    $('#example').DataTable( {
+
+      } );
+    } );
+   </script>
+
+   <style>
+   body{
+   position: relative;
+       left: 40px;
+     width: 90%
+   }
+
+
+     table{
+
+       padding: 20px;
+
+     }
+     td,th{
+       border:1px black solid;
+     }
+     tfoot{
+      position: relative;
+     }
+
+
+   </style>
+
+
+  </head>
+
+<body>
+<h1>CANNA Continental Product Details</h1>
+
+  <table id="example" class="stripe" style="widt">
+    <thead>
+        <tr>
+            <th>Product Reference</th>
+            <th>Product Name</th>
+             <th>Product Category</th>
+             <th>UOM</th>
+             <th>Type</th>
+             <th>Weight by unit</th>
+            <th>Weight by cs </th>
+            <th>Unit per cs </th>
+            <th>Pieces full pallet </th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for index in df.index: %}
+      <tr>
+        <td>{{df["Product Reference"][index]}}</td>
+        <td>{{df["Product Name"][index]}}</td>
+          <td>{{df["Product Category"][index]}}</td>
+          <td>{{df["UOM"][index]}}</td>
+          <td>{{df["Type"][index]}}</td>
+          <td>{{df["Weight by unit"][index]}}</td>
+          <td>{{df["Weight by cs"][index]}}</td>
+          <td>{{df["Unit per cs"][index]}}</td>
+          <td>{{df["Pieces full pallet"][index]}}</td>
+      {% endfor %}
+    </tr>
+
+    </tbody>
+    <tfoot>
+    </tfoot>
+</table>
+
+
+
+
+
+
+
+</body>
+</html>
+
